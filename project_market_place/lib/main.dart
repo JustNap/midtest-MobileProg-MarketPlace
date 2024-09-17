@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'notifikasi/notifikasi_success.dart'; // Import halaman notifikasi oke
+import 'notifikasi/notifikasi_success.dart';
 import 'notifikasi/page.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, String>> notifications = [];
-  int orderCount = 0; // Untuk menghitung jumlah pesanan
+  int orderCount = 0;
 
   void _addNotification() {
     setState(() {
@@ -49,20 +49,18 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             ElevatedButton(
               onPressed: () {
-                // Simulasi pembayaran berhasil dan pindah ke halaman notifikasi oke
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NotifikasiSuccess()), // Halaman setelah pembayaran berhasil
+                      builder: (context) => NotifikasiSuccess()),
                 ).then((_) {
-                  _addNotification(); // Tambah notifikasi setelah kembali
+                  _addNotification();
                 });
               },
               child: Text('Bayar Sekarang'),
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigasi ke halaman notifikasi
                 Navigator.push(
                   context,
                   MaterialPageRoute(

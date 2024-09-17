@@ -36,7 +36,6 @@ class NotifikasiPage extends StatelessWidget {
                     ),
                     trailing: ElevatedButton(
                       onPressed: () {
-                        // Aksi saat tombol ditekan
                       },
                       child: Text('Tampilkan Rincian'),
                     ),

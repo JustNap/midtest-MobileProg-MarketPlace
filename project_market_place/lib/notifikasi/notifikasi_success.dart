@@ -30,7 +30,6 @@ class NotifikasiSuccess extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Kembali ke halaman utama atau notifikasi
                 Navigator.of(context).pop();
               },
               child: Text('OK'),
