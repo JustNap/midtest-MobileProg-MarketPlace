@@ -1,38 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'models/product.dart';
-import 'providers/cart_provider.dart';
-import 'screens/cart_screen.dart';
-import 'screens/product_list_screen.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CartProvider(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: ProductListScreen(), // Ganti dengan halaman daftar produk
-      ),
-    );
-  }
-}
+import '../models/product.dart';
+import '../providers/cart_provider.dart';
+import 'cart_screen.dart';
 
 class ProductListScreen extends StatelessWidget {
   final List<Product> products = [
-    Product(id: '1', title: 'Product 1', price: 30.0),
-    Product(id: '2', title: 'Product 2', price: 40.0),
-    Product(id: '3', title: 'Product 3', price: 50.0),
+    Product(id: '1', title: 'Asus', price: 30),
+    Product(id: '2', title: 'Lenovo', price: 40),
+    Product(id: '3', title: 'Samsung', price: 50),
   ];
 
   @override
