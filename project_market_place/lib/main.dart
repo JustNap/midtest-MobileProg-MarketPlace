@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/home/home.dart';
+import 'bottom_nav.dart';
 
 import 'notifikasi/notifikasi_success.dart';
 import 'notifikasi/page.dart';
@@ -11,68 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Marketplace App',
-      home: HomeScreen(),
-    );
-  }
-}
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  List<Map<String, String>> notifications = [];
-  int orderCount = 0;
-
-  void _addNotification() {
-    setState(() {
-      orderCount++;
-      notifications.add({
-        'title': 'Pesanan Tiba',
-        'description': 'Pesanan $orderCount',
-        'date': DateTime.now().toString(),
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Marketplace App'),
+      title: 'Flutter Bottom Nav Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => NotifikasiSuccess()),
-                ).then((_) {
-                  _addNotification();
-                });
-              },
-              child: Text('Bayar Sekarang'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          NotifikasiPage(notifications: notifications)),
-                );
-              },
-              child: Text('Lihat Notifikasi'),
-            ),
-          ],
-        ),
-      ),
+      home: BotNavBar()
     );
   }
 }
