@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pembelian/checkout.dart';
 import 'profil.dart';
 import 'setting.dart';
 import '../bottom_nav.dart';
@@ -11,12 +12,15 @@ class AkunPage extends StatefulWidget {
 class _AkunPageState extends State<AkunPage> {
   String greeting = 'Hello';
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('akun'),
+        title: Text('akun',
+          style: TextStyle(
+            fontFamily: 'poppins_semibold'
+          ),
+        ),
         backgroundColor: Colors.teal,
         elevation: 0,
         leading: Builder(
@@ -49,7 +53,10 @@ class _AkunPageState extends State<AkunPage> {
             ListTile(
               leading: Icon(Icons.settings, color: Colors.teal),
               title: Text('Pengaturan',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                    fontFamily: 'poppins_semibold'
+                  )
+                ),
               subtitle: Text('Notifikasi & Kata Sandi'),
               onTap: () {
                 Navigator.push(
@@ -62,14 +69,20 @@ class _AkunPageState extends State<AkunPage> {
             ListTile(
               leading: Icon(Icons.smartphone, color: Colors.teal),
               title: Text('Alasan pilih kami',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                    fontFamily: 'poppins_semibold'
+                  )
+                ),
               subtitle: Text('kenali kami'),
             ),
             Divider(),
             ListTile(
               leading: Icon(Icons.policy, color: Colors.teal),
               title: Text('Kebijakan privasi',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                    fontFamily: 'poppins_semibold'
+                  )
+                ),
               subtitle: Text('Pelajari selengkapnya'),
             ),
             Divider(),
@@ -108,8 +121,7 @@ class _AkunPageState extends State<AkunPage> {
                     Text(
                       greeting,
                       style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
+                        fontFamily: 'poppins_semibold',
                       ),
                     ),
                     TextButton(
@@ -135,7 +147,10 @@ class _AkunPageState extends State<AkunPage> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Status',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: TextStyle(
+                    fontFamily: 'poppins_semibold', 
+                    fontSize: 18
+                  ),
                 ),
               ),
             ),
@@ -150,6 +165,12 @@ class _AkunPageState extends State<AkunPage> {
               title: Text('Status Pembelian'),
               subtitle: Text('LIhat sudah sampai mana Barang mu'),
               trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CheckoutPage()),
+                );
+              },
             ),
             Divider(),
             Padding(
@@ -165,7 +186,9 @@ class _AkunPageState extends State<AkunPage> {
                       Text(
                         'Start buying now!',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontFamily: 'poppins_semibold', 
+                            fontSize: 16
+                        ),
                       ),
                       SizedBox(height: 8),
                       Text('Seems like you haven\'t explored much yet!'),
