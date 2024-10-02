@@ -3,6 +3,31 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:in_app_notification/in_app_notification.dart';
 
+import 'notifikasi_success.dart';
+import 'page.dart';
+
+void main() {
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InAppNotification(
+      child: MaterialApp(
+        title: 'In-App Notification Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: Notifikasi(),
+      ),
+    );
+  }
+}
+
 class Notifikasi extends StatefulWidget {
   @override
   NotifikasiState createState() => NotifikasiState();
@@ -11,21 +36,25 @@ class Notifikasi extends StatefulWidget {
 class NotifikasiState extends State<Notifikasi> {
   int _count = 0;
   int _duration = 3000; // Durasi default tetap ada
+  List<String> _notifications = []; // Menyimpan daftar notifikasi
 
-  void _incrementCount() => setState(() => _count++);
-    
+  void _incrementCount() => setState(() {
+        _count++;
+        _notifications.add('Pesanan $_count Berhasil'); // Menambah notifikasi ke daftar
+      });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifikasi'),
+        title: Text('Notifikasi Lokal'),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Pesanan yang ke $_count'),
+            Text('Current count: $_count'),
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
@@ -35,14 +64,31 @@ class NotifikasiState extends State<Notifikasi> {
                     count: _count,
                   ),
                   context: context,
-                  onTap: () => print('Notification tapped!'),
+                  onTap: () {
+                    // Mengarahkan ke halaman notifikasi dengan data notifikasi yang ada
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotifikasiSuccess(
+                          pesanan: 'Pesanan $_count Berhasil',
+                          onShowNotification: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NotifikasiPage(notifications: _notifications),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
                   duration: Duration(milliseconds: _duration),
                 );
               },
               child: Text('Lihatkan Notifikasi'),
             ),
             const SizedBox(height: 32),
-            // Menghapus tombol Dismiss Notification
           ],
         ),
       ),
