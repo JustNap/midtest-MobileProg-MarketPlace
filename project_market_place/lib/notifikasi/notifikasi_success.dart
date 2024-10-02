@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/notifikasi/page.dart';
 
 class NotifikasiSuccess extends StatelessWidget {
   @override
@@ -30,7 +31,13 @@ class NotifikasiSuccess extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                // Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotifikasiPage(notifications: [],),
+                  ),
+                );
               },
               child: Text('OK'),
             ),

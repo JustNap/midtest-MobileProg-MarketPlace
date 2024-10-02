@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'profil.dart';
 import 'setting.dart';
-import '../bottom_nav.dart';
 
 class AkunPage extends StatefulWidget {
   @override

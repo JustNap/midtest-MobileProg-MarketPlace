@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'home/home.dart';
-import 'keranjang/keranjang.dart';
-import 'jual/jual.dart';
-import 'notifikasi/notifikasi.dart';
+
 import 'akun/akun.dart';
+import 'home/home.dart';
+import 'jual/jual.dart';
+import 'keranjang/keranjang.dart';
+import 'notifikasi/inapp.dart';
 
 class BotNavBar extends StatefulWidget {
   @override
@@ -16,8 +17,8 @@ class _BotNavBarState extends State<BotNavBar> {
   final List<Widget> _pages = [
     HomePage(),
     KeranjangPage(),
-    JualPage(),
-    NotifikasiPage(),
+    UploadProductScreen(),
+    Notifikasi(),
     AkunPage(),
   ];
 
