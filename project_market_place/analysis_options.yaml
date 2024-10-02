@@ -10,6 +10,11 @@
 analyzer:
   errors:
     unused_import: ignore
+<<<<<<< HEAD
+=======
+    unused_field: ignore
+    unused_element: ignore
+>>>>>>> 40bc5fc9bd796423990238963845a85d856faf3c
 include: package:flutter_lints/flutter.yaml
 
 linter:
