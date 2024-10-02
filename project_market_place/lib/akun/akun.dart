@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'about.dart';
 import '../pembelian/checkout.dart';
 import 'profil.dart';
 import 'setting.dart';
 import '../bottom_nav.dart';
+import 'privasi.dart';
+
 
 class AkunPage extends StatefulWidget {
   @override
@@ -74,6 +77,12 @@ class _AkunPageState extends State<AkunPage> {
                   )
                 ),
               subtitle: Text('kenali kami'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()),
+                );
+              }
             ),
             Divider(),
             ListTile(
@@ -84,6 +93,12 @@ class _AkunPageState extends State<AkunPage> {
                   )
                 ),
               subtitle: Text('Pelajari selengkapnya'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrivacyPage()),
+                );
+              }
             ),
             Divider(),
             Spacer(),
