@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'product_riview.dart'; // Import file review_product.dart
+import 'product_riview.dart';
 
 class UploadProductScreen extends StatefulWidget {
-  const UploadProductScreen({super.key});
+  const UploadProductScreen({Key? key}) : super(key: key);
 
   @override
   _UploadProductScreenState createState() => _UploadProductScreenState();
