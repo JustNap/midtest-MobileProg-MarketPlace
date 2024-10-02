@@ -35,12 +35,12 @@ class Notifikasi extends StatefulWidget {
 
 class NotifikasiState extends State<Notifikasi> {
   int _count = 0;
-  int _duration = 3000; // Durasi default tetap ada
-  List<String> _notifications = []; // Menyimpan daftar notifikasi
+  int _duration = 3000;
+  List<String> _notifications = [];
 
   void _incrementCount() => setState(() {
         _count++;
-        _notifications.add('Pesanan $_count Berhasil'); // Menambah notifikasi ke daftar
+        _notifications.add('Pesanan $_count Berhasil');
       });
 
   @override
@@ -65,7 +65,6 @@ class NotifikasiState extends State<Notifikasi> {
                   ),
                   context: context,
                   onTap: () {
-                    // Mengarahkan ke halaman notifikasi dengan data notifikasi yang ada
                     Navigator.push(
                       context,
                       MaterialPageRoute(

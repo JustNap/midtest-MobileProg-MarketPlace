@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return InAppNotification(
       child: MaterialApp(
 
-      title: 'Flutter Bottom Nav Demo',
+      title: 'Marketplace Phone',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
