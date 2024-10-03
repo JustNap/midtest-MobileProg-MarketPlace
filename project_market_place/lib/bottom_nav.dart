@@ -16,6 +16,7 @@ class _BotNavBarState extends State<BotNavBar> {
   final List<Widget> _pages = [
     HomePage(),
     KeranjangPage(),
+    UploadProductScreen(),
     NotifikasiPage(),
     AkunPage(),
   ];
