@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/akun/login.dart';
 import 'package:project_market_place/home/home.dart';
 import './tema/theme.dart';
 import 'bottom_nav.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce',
       theme: appTheme,
-      home: BotNavBar(),
+      home: LoginPage(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/akun/transaksiSuccess.dart';
 
 class CheckoutPage extends StatefulWidget {
   @override
@@ -6,7 +7,6 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
-
   String _messageToSeller = '';
 
   @override
@@ -22,8 +22,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
         elevation: 0,
       ),
       body: ListView(
-        padding: EdgeInsets.only(
-            bottom: 80), 
+        padding: EdgeInsets.only(bottom: 80),
         children: [
           _buildProductInfo(),
           _buildShippingOption(),
@@ -129,69 +128,69 @@ class _CheckoutPageState extends State<CheckoutPage> {
     );
   }
 
-
-
   Widget _buildOrderButton() {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 1,
-          blurRadius: 5,
-          offset: Offset(0, -3),
-        ),
-      ],
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Total Pembayaran',
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: Offset(0, -3),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Total Pembayaran',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black54,
+                ),
+              ),
+              Text(
+                'Rp00.000',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
+                ),
+              ),
+            ],
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TransactionSuccessPage()),
+              );
+            },
+            child: Text(
+              'Buat Pesanan',
               style: TextStyle(
-                fontSize: 14,
-                color: Colors.black54,
+                fontSize: 16,
+                fontFamily: 'poppins_regular',
+                color: Colors.white,
               ),
             ),
-            Text(
-              'Rp00.000',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.teal,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.teal,
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
               ),
             ),
-          ],
-        ),
-        ElevatedButton(
-          onPressed: () {
-
-          },
-          child: Text(
-            'Buat Pesanan',
-            style: TextStyle(
-              fontSize: 16,
-              fontFamily: 'poppins_regular',
-              color: Colors.white,
-            ),
           ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.teal,
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
+        ],
+      ),
+    );
+  }
 }
