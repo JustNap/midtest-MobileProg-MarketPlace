@@ -3,30 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:in_app_notification/in_app_notification.dart';
 
+import '../chat.dart';
 import 'notifikasi_success.dart';
 import 'page.dart';
-
-void main() {
-  runApp(App());
-}
-
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InAppNotification(
-      child: MaterialApp(
-        title: 'In-App Notification Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: Notifikasi(),
-      ),
-    );
-  }
-}
 
 class Notifikasi extends StatefulWidget {
   @override
@@ -48,6 +27,19 @@ class NotifikasiState extends State<Notifikasi> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Notifikasi Lokal'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.chat),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatPage(),
+                ),
+              );
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(
