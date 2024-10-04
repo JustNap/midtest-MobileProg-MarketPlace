@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NotifikasiSuccess extends StatelessWidget {
   final String pesanan;
-  final VoidCallback onShowNotification; // Callback untuk menampilkan notifikasi
+  final VoidCallback onShowNotification;
 
   NotifikasiSuccess({Key? key, required this.pesanan, required this.onShowNotification}) : super(key: key);
 
@@ -35,8 +35,7 @@ class NotifikasiSuccess extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Mengarahkan ke halaman notifikasi dengan data pesanan
-                onShowNotification(); // Memanggil callback
+                onShowNotification();
               },
               child: Text('Tampilkan Rincian'),
             ),

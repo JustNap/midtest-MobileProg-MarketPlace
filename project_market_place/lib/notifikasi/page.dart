@@ -34,7 +34,6 @@ class NotifikasiPage extends StatelessWidget {
                     ),
                     trailing: Icon(Icons.arrow_forward_ios),
                     onTap: () {
-                      // Navigate to the detail page or show details here
                     },
                   ),
                 );
