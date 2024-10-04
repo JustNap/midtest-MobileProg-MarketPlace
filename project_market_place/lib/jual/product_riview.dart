@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:project_market_place/jual/jual.dart';
 
 class ReviewProductScreen extends StatelessWidget {
   final String name;
@@ -21,7 +22,7 @@ class ReviewProductScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          'Detail Produk',
+          'Riview Produk Anda',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -32,7 +33,6 @@ class ReviewProductScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16.0),
         children: <Widget>[
-          // Gambar Produk
           imagePath.isNotEmpty
               ? ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
@@ -57,7 +57,6 @@ class ReviewProductScreen extends StatelessWidget {
                   ),
                 ),
           SizedBox(height: 16.0),
-          // Nama Produk
           Text(
             name,
             style: TextStyle(
@@ -67,7 +66,6 @@ class ReviewProductScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.0),
-          // Harga Produk
           Text(
             'Rp$price',
             style: TextStyle(
@@ -78,7 +76,6 @@ class ReviewProductScreen extends StatelessWidget {
           ),
           SizedBox(height: 16.0),
           Divider(),
-          // Deskripsi Produk
           Text(
             'Deskripsi Produk',
             style: TextStyle(
@@ -97,12 +94,11 @@ class ReviewProductScreen extends StatelessWidget {
             textAlign: TextAlign.justify,
           ),
           SizedBox(height: 24.0),
-          // Tombol Kembali
           SizedBox(
             width: double.infinity,
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadProductScreen()));
               },
               style: OutlinedButton.styleFrom(
                 padding: EdgeInsets.symmetric(vertical: 16.0),

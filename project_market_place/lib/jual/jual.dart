@@ -45,7 +45,7 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
               child: Text('Ya'),
               onPressed: () {
                 Navigator.of(context).pop();
-                _navigateToReview(); // Navigate to review product screen
+                _navigateToReview(); 
               },
             ),
           ],
@@ -72,7 +72,8 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold ( 
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Upload Produk'),
       ),
