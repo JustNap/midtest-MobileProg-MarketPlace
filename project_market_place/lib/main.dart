@@ -4,8 +4,6 @@ import 'package:project_market_place/home/home.dart';
 import './tema/theme.dart';
 import 'bottom_nav.dart';
 
-
-
 void main() {
   runApp(MyApp());
 }
