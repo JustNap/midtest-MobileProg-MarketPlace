@@ -1,28 +1,21 @@
-import 'package:provider/provider.dart';
-import 'pages/cart_page.dart';
-import 'providers/cart_provider.dart';
-import 'screens/product_list_screen.dart';
-import 'pages/cart_page.dart';
-import 'widgets/cart_icon.dart';
+import 'package:flutter/material.dart';
+import 'package:project_market_place/akun/login.dart';
+import 'package:project_market_place/home/home.dart';
+import './tema/theme.dart';
+import 'bottom_nav.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final cartProvider = CartProvider();
-  await cartProvider.loadCart();
+void main() {
+  runApp(MyApp());
+}
 
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: cartProvider),
-      ],
-      child: MyApp(),
-    ),
-  );
-      title: 'PROJECT_MARKET_PLACE',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ProductListScreen(),
-      routes: {
-        '/cart': (context) => CartPage(),
-      },
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'E-Commerce',
+      theme: appTheme,
+      home: LoginPage(),
+    );
+  }
+}
