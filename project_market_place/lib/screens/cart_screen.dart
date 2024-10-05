@@ -94,9 +94,14 @@ class CartScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CheckoutPage()),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CheckoutPage(
+                          totalAmount: cart.totalAmount,
+                          cartItems: cart.items.values.toList(),
+                        )
+                      ),
+                    );
                   },
                   child: Text('Check Out'),
                 ),

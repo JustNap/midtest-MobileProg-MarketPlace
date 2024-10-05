@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:project_market_place/models/product.dart';
 import '/akun/transaksiSuccess.dart';
 
 class CheckoutPage extends StatefulWidget {
+  final double totalAmount;
+  final List<Product> cartItems;
+
+  CheckoutPage({required this.totalAmount, required this.cartItems});
+
   @override
   _CheckoutPageState createState() => _CheckoutPageState();
 }
@@ -35,26 +42,32 @@ class _CheckoutPageState extends State<CheckoutPage> {
   }
 
   Widget _buildProductInfo() {
-    return Card(
-      margin: EdgeInsets.all(8),
-      child: ListTile(
-        leading: Image.asset('assets/Gambar/putih.jpg'),
-        title: Text('Handphone'),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Bebas Pengembalian', style: TextStyle(color: Colors.teal)),
-            Text('Variasi:'),
-          ],
-        ),
-        trailing: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text('Rp 00.000'),
-            Text('x1'),
-          ],
-        ),
-      ),
+    return Column(
+      children: widget.cartItems.map((product) {
+        return Card(
+          margin: EdgeInsets.all(8),
+          child: ListTile(
+            leading: Image.asset(product.imageUrl),
+            title: Text(product.name),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Bebas Pengembalian',
+                    style: TextStyle(color: Colors.teal)),
+                Text('Variasi:'),
+              ],
+            ),
+            trailing: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                    'Rp ${NumberFormat.currency(locale: 'id_ID', symbol: '').format(product.price)}'),
+                Text('x${product.quantity}'),
+              ],
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 
@@ -123,8 +136,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   Widget _buildOrderSummary() {
     return ListTile(
-      title: Text('Total Pesanan (1 Produk):'),
-      trailing: Text('Rp00.000', style: TextStyle(fontWeight: FontWeight.bold)),
+      title: Text('Total Pesanan (${widget.cartItems.length} Produk):'),
+      trailing: Text(
+        'Rp${NumberFormat.currency(locale: 'id_ID', symbol: '').format(widget.totalAmount)}',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
     );
   }
 
@@ -157,7 +173,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 ),
               ),
               Text(
-                'Rp00.000',
+                'Rp${NumberFormat.currency(locale: 'id_ID', symbol: '').format(widget.totalAmount)}',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -170,7 +186,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TransactionSuccessPage()),
+                MaterialPageRoute(
+                    builder: (context) => TransactionSuccessPage(
+                        totalAmount: widget.totalAmount,
+                        cartItems: widget.cartItems,
+                    )
+                ),
               );
             },
             child: Text(

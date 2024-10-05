@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 import '/home/home.dart';
 import '/jual/jual.dart';
 import 'profil.dart';
@@ -7,7 +9,6 @@ import 'about.dart';
 import '../pembelian/checkout.dart';
 import '../bottom_nav.dart';
 import 'privasi.dart';
-
 
 class AkunPage extends StatefulWidget {
   @override
@@ -165,22 +166,28 @@ class _AkunPageState extends State<AkunPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => UploadProductScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => UploadProductScreen()),
                 );
               },
             ),
             ListTile(
-              leading: Icon(Icons.shopping_cart, color: Colors.teal),
-              title: Text('Status Pembelian'),
-              subtitle: Text('LIhat sudah sampai mana Barang mu'),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CheckoutPage()),
-                );
-              },
-            ),
+                leading: Icon(Icons.shopping_cart, color: Colors.teal),
+                title: Text('Status Pembelian'),
+                subtitle: Text('LIhat sudah sampai mana Barang mu'),
+                trailing: Icon(Icons.chevron_right),
+                onTap: () {
+                  final cart = Provider.of<CartProvider>(context, listen: false);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CheckoutPage(
+                        totalAmount: cart.totalAmount,
+                        cartItems: cart.items.values.toList(),
+                      ),
+                    ),
+                  );
+                }),
             Divider(),
             Padding(
               padding:
@@ -204,14 +211,14 @@ class _AkunPageState extends State<AkunPage> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         },
-                        child: Text('Explore Phone',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        child: Text(
+                          'Explore Phone',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal,
