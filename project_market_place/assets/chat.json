@@ -1,0 +1,18 @@
+[
+    {
+    "id": "1",
+    "author": {
+        "id": "user1"
+    },
+    "text": "Halo!",
+    "createdAt": 1627661122000
+    },
+    {
+    "id": "2",
+    "author": {
+        "id": "user2"
+    },
+    "text": "Halo!",
+    "createdAt": 1627661123000
+    }
+]
