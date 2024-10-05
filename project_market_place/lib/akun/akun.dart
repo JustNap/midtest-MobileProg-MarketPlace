@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'about.dart';
-import '../pembelian/checkout.dart';
 import 'profil.dart';
 import 'setting.dart';
+import 'about.dart';
+import '../pembelian/checkout.dart';
 import '../bottom_nav.dart';
 import 'privasi.dart';
 
