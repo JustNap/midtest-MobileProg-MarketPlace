@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:in_app_notification/in_app_notification.dart';
+import 'package:project_market_place/bottom_nav.dart';
 
 import '../chat.dart';
 import 'notifikasi_success.dart';
@@ -26,6 +27,15 @@ class NotifikasiState extends State<Notifikasi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BotNavBar()),
+            );
+          },
+        ),
         title: Text('Notifikasi Lokal'),
         actions: [
           IconButton(

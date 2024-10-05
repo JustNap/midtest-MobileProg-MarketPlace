@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/home/home.dart';
+import '/jual/jual.dart';
 import 'profil.dart';
 import 'setting.dart';
 import 'about.dart';
@@ -19,10 +21,9 @@ class _AkunPageState extends State<AkunPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('akun',
-          style: TextStyle(
-            fontFamily: 'poppins_semibold'
-          ),
+        title: Text(
+          'akun',
+          style: TextStyle(fontFamily: 'poppins_semibold'),
         ),
         backgroundColor: Colors.teal,
         elevation: 0,
@@ -56,10 +57,7 @@ class _AkunPageState extends State<AkunPage> {
             ListTile(
               leading: Icon(Icons.settings, color: Colors.teal),
               title: Text('Pengaturan',
-                  style: TextStyle(
-                    fontFamily: 'poppins_semibold'
-                  )
-                ),
+                  style: TextStyle(fontFamily: 'poppins_semibold')),
               subtitle: Text('Notifikasi & Kata Sandi'),
               onTap: () {
                 Navigator.push(
@@ -70,36 +68,28 @@ class _AkunPageState extends State<AkunPage> {
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.smartphone, color: Colors.teal),
-              title: Text('Alasan pilih kami',
-                  style: TextStyle(
-                    fontFamily: 'poppins_semibold'
-                  )
-                ),
-              subtitle: Text('kenali kami'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AboutPage()),
-                );
-              }
-            ),
+                leading: Icon(Icons.smartphone, color: Colors.teal),
+                title: Text('Alasan pilih kami',
+                    style: TextStyle(fontFamily: 'poppins_semibold')),
+                subtitle: Text('kenali kami'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutPage()),
+                  );
+                }),
             Divider(),
             ListTile(
-              leading: Icon(Icons.policy, color: Colors.teal),
-              title: Text('Kebijakan privasi',
-                  style: TextStyle(
-                    fontFamily: 'poppins_semibold'
-                  )
-                ),
-              subtitle: Text('Pelajari selengkapnya'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PrivacyPage()),
-                );
-              }
-            ),
+                leading: Icon(Icons.policy, color: Colors.teal),
+                title: Text('Kebijakan privasi',
+                    style: TextStyle(fontFamily: 'poppins_semibold')),
+                subtitle: Text('Pelajari selengkapnya'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrivacyPage()),
+                  );
+                }),
             Divider(),
             Spacer(),
             Padding(
@@ -162,10 +152,8 @@ class _AkunPageState extends State<AkunPage> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Status',
-                  style: TextStyle(
-                    fontFamily: 'poppins_semibold', 
-                    fontSize: 18
-                  ),
+                  style:
+                      TextStyle(fontFamily: 'poppins_semibold', fontSize: 18),
                 ),
               ),
             ),
@@ -174,6 +162,12 @@ class _AkunPageState extends State<AkunPage> {
               title: Text('Lanjut jual'),
               subtitle: Text('Dapatkan estimasi harga Handphone'),
               trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UploadProductScreen()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.shopping_cart, color: Colors.teal),
@@ -201,16 +195,24 @@ class _AkunPageState extends State<AkunPage> {
                       Text(
                         'Start buying now!',
                         style: TextStyle(
-                            fontFamily: 'poppins_semibold', 
-                            fontSize: 16
-                        ),
+                            fontFamily: 'poppins_semibold', fontSize: 16),
                       ),
                       SizedBox(height: 8),
                       Text('Seems like you haven\'t explored much yet!'),
                       SizedBox(height: 16),
                       ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Explore Phone'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()),
+                          );
+                        },
+                        child: Text('Explore Phone',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal,
                         ),
