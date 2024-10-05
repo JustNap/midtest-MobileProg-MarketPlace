@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/cart_page.dart';
 import 'providers/cart_provider.dart';
@@ -19,12 +18,6 @@ void main() async {
       child: MyApp(),
     ),
   );
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
       title: 'PROJECT_MARKET_PLACE',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -33,6 +26,3 @@ class MyApp extends StatelessWidget {
       routes: {
         '/cart': (context) => CartPage(),
       },
-    );
-  }
-}
