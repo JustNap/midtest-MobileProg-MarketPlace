@@ -1,62 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/product.dart';
 import '../providers/cart_provider.dart';
+import '../models/product.dart';
 import 'cart_screen.dart';
+import '../widgets/cart_icon.dart';
+import 'package:intl/intl.dart';
 
 class ProductListScreen extends StatelessWidget {
   final List<Product> products = [
-    Product(id: '1', title: 'Asus', price: 30),
-    Product(id: '2', title: 'Lenovo', price: 40),
-    Product(id: '3', title: 'Samsung', price: 50),
+    Product(
+      id: '1',
+      name: 'Samsung',
+      price: 10000.0, 
+      imageUrl: 'assets/Gambar/samsung.jpg',
+    ),
+    Product(
+      id: '2',
+      name: 'Iphone',
+      price: 20000.0,
+      imageUrl: 'assets/Gambar/iphone1.jpg',
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final cartProvider = Provider.of<CartProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Marketplace'),
         actions: [
-          IconButton(
-            icon: Stack(
-              children: [
-                Icon(Icons.shopping_cart),
-                if (cartProvider.cartCount > 0)
-                  Positioned(
-                    right: 0,
-                    child: CircleAvatar(
-                      radius: 8,
-                      backgroundColor: Colors.red,
-                      child: Text(
-                        cartProvider.cartCount.toString(),
-                        style: TextStyle(fontSize: 12, color: Colors.white),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CartScreen()),
-              );
-            },
-          ),
+          CartIcon(),
         ],
       ),
       body: ListView.builder(
         itemCount: products.length,
         itemBuilder: (context, index) {
+          final product = products[index];
+
+          final formattedPrice = NumberFormat.currency(
+            locale: 'id_ID',
+            symbol: 'Rp ',
+            decimalDigits: 0,
+          ).format(product.price);
+
           return ListTile(
-            title: Text(products[index].title),
-            subtitle: Text('\$${products[index].price}'),
-            trailing: ElevatedButton(
+            leading: Container(
+              width: 50,
+              height: 50,
+              child: Image.asset(
+                product.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
+            title: Text(product.name),
+            subtitle: Text(formattedPrice),
+            trailing: IconButton(
+              icon: Icon(Icons.add_shopping_cart),
               onPressed: () {
-                cartProvider.addProductToCart(products[index]);
+                Provider.of<CartProvider>(context, listen: false).addItem(product);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('${product.name} added to cart!'),
+                    duration: Duration(seconds: 1),
+                  ),
+                );
               },
-              child: Text('Add to Cart'),
             ),
           );
         },
