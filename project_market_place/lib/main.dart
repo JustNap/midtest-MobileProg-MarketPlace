@@ -1,24 +1,28 @@
-import 'package:flutter/material.dart';
-import 'package:project_market_place/home/home.dart';
-import 'bottom_nav.dart';
+import 'package:provider/provider.dart';
+import 'pages/cart_page.dart';
+import 'providers/cart_provider.dart';
+import 'screens/product_list_screen.dart';
+import 'pages/cart_page.dart';
+import 'widgets/cart_icon.dart';
 
-import 'notifikasi/notifikasi_success.dart';
-import 'notifikasi/page.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final cartProvider = CartProvider();
+  await cartProvider.loadCart();
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-
-      title: 'Flutter Bottom Nav Demo',
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: cartProvider),
+      ],
+      child: MyApp(),
+    ),
+  );
+      title: 'PROJECT_MARKET_PLACE',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.blue,
       ),
-      home: BotNavBar()
-    );
-  }
-}
+      home: ProductListScreen(),
+      routes: {
+        '/cart': (context) => CartPage(),
+      },
