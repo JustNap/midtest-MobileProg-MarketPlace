@@ -6,7 +6,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Search Bar
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
@@ -60,6 +61,23 @@ class _HomePageState extends State<HomePage> {
                     Icons.search,
                     color: Colors.teal,
                   ),
+                  // suffixIcon: Row(
+                  //   mainAxisSize: MainAxisSize.min,
+                  //   children: [
+                  //     Container(
+                  //       decoration: BoxDecoration(
+                  //         color: Colors.teal,
+                  //         shape: BoxShape.circle,
+                  //       ),
+                  //       padding: EdgeInsets.all(8.0),
+                  //       child: Icon(
+                  //         Icons.camera_alt,
+                  //         color: Colors.white,
+                  //       ),
+                  //     ),
+                  //     SizedBox(width: 8.0),
+                  //   ],
+                  // ),
                   contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                 ),
                 onSubmitted: (query) {
@@ -77,6 +95,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
+            // Carousel
             Container(
               height: 70,
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -90,8 +109,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
+            // Top Deals Card
             _buildDealsSection(topDeals, "Top Deals", "Check out our best deals on phones!", 50),
 
+            // New Arrivals Card
             _buildDealsSection(newArrivals, "New Arrivals", "Check out our exciting new arrivals today!", 70),
           ],
         ),
@@ -203,11 +224,11 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           title,
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Change text color to white for better contrast
                         ),
                         Text(
                           subtitle,
-                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          style: TextStyle(fontSize: 14, color: Colors.black), // Change text color to white for better contrast
                         ),
                       ],
                     ),
@@ -277,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    'Rp.${price.toStringAsFixed(0)}',
+                    'Rp ${NumberFormat.currency(locale: 'id', symbol: '', decimalDigits: 0).format(price)}',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],

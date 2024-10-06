@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../products/product.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:intl/intl.dart';
 
 class AllPhonesPage extends StatelessWidget {
   final String jsonFile;
@@ -29,14 +30,17 @@ class AllPhonesPage extends StatelessWidget {
             return Center(child: Text('No products found.'));
           }
 
+          // Dapatkan data produk
           var products = snapshot.data!;
 
+          // Filter produk berdasarkan searchQuery
           if (searchQuery.isNotEmpty) {
             products = products.where((product) {
               return product.name.toLowerCase().contains(searchQuery.toLowerCase());
             }).toList();
           }
 
+          // Jika tidak ada produk yang cocok dengan pencarian
           if (products.isEmpty) {
             return Center(child: Text('No products found.'));
           }
@@ -87,7 +91,7 @@ class AllPhonesPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.only(top: 20.0), // Add top padding here
                 child: Image.asset(imageUrl, height: 80, fit: BoxFit.cover),
               ),
               Padding(
@@ -100,7 +104,7 @@ class AllPhonesPage extends StatelessWidget {
                       style: TextStyle(fontSize: 15),
                     ),
                     Text(
-                      'Rp.${price.toStringAsFixed(0)}',
+                      'Rp ${NumberFormat.currency(locale: 'id', symbol: '', decimalDigits: 0).format(price)}',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
