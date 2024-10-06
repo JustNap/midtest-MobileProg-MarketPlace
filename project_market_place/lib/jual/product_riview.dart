@@ -19,35 +19,52 @@ class ReviewProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(
         title: Text(
-          'Riview Produk Anda',
-          style: TextStyle(color: Colors.black),
+          'Review Produk Anda',
+          style: TextStyle(
+            color: Colors.teal[900],
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        elevation: 0.5,
-        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 2.0,
+        iconTheme: IconThemeData(color: Colors.teal[900]),
       ),
       body: ListView(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(20.0),
         children: <Widget>[
           imagePath.isNotEmpty
-              ? ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image.file(
-                    File(imagePath),
-                    width: double.infinity,
-                    height: 300,
-                    fit: BoxFit.cover,
+              ? Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.teal.withOpacity(0.3),
+                        blurRadius: 15.0,
+                        spreadRadius: 5.0,
+                        offset: Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image.file(
+                      File(imagePath),
+                      width: double.infinity,
+                      height: 300,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 )
               : Container(
                   height: 300,
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
                   child: Center(
                     child: Text(
@@ -56,60 +73,81 @@ class ReviewProductScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 20.0),
           Text(
             name,
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.teal[900],
             ),
           ),
-          SizedBox(height: 8.0),
-          Text(
-            'Rp$price',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 0, 150, 136),
-            ),
+          SizedBox(height: 12.0),
+          Row(
+            children: [
+              Text(
+                'Rp$price',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal[700],
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 20.0),
           Divider(),
           Text(
             'Deskripsi Produk',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: Colors.teal[800],
             ),
           ),
-          SizedBox(height: 8.0),
+          SizedBox(height: 10.0),
           Text(
             description,
             style: TextStyle(
               fontSize: 16,
               color: Colors.black54,
+              height: 1.6,
             ),
             textAlign: TextAlign.justify,
           ),
-          SizedBox(height: 24.0),
+          SizedBox(height: 30.0),
           SizedBox(
             width: double.infinity,
-            child: OutlinedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadProductScreen()));
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => UploadProductScreen()));
               },
-              style: OutlinedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                side: BorderSide(color: Colors.green),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.teal[700]!, Colors.teal[400]!],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(15.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.teal.withOpacity(0.3),
+                      blurRadius: 10.0,
+                      offset: Offset(0, 5),
+                    ),
+                  ],
                 ),
-              ),
-              child: Text(
-                'Kembali',
-                style: TextStyle(fontSize: 18, color: Colors.green),
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Kembali',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ),

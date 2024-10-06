@@ -22,13 +22,22 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   List<types.Message> _messages = [];
-  final _user = const types.User(
+  final _user1 = const types.User(
     id: '1',
+    firstName: 'Pembeli',
   );
+
+  final _user2 = const types.User(
+    id: '2',
+    firstName: 'Penjual',
+  );
+
+  late types.User _currentUser;
 
   @override
   void initState() {
     super.initState();
+    _currentUser = _user1;
     _loadMessages();
   }
 
@@ -88,7 +97,7 @@ class _ChatPageState extends State<ChatPage> {
 
     if (result != null && result.files.single.path != null) {
       final message = types.FileMessage(
-        author: _user,
+        author: _user1,
         createdAt: DateTime.now().millisecondsSinceEpoch,
         id: const Uuid().v4(),
         mimeType: lookupMimeType(result.files.single.path!),
@@ -113,7 +122,7 @@ class _ChatPageState extends State<ChatPage> {
       final image = await decodeImageFromList(bytes);
 
       final message = types.ImageMessage(
-        author: _user,
+        author: _currentUser,
         createdAt: DateTime.now().millisecondsSinceEpoch,
         height: image.height.toDouble(),
         id: const Uuid().v4(),
@@ -188,7 +197,7 @@ class _ChatPageState extends State<ChatPage> {
 
   void _handleSendPressed(types.PartialText message) {
     final textMessage = types.TextMessage(
-      author: _user,
+      author: _currentUser,
       createdAt: DateTime.now().millisecondsSinceEpoch,
       id: const Uuid().v4(),
       text: message.text,
@@ -208,6 +217,12 @@ class _ChatPageState extends State<ChatPage> {
     });
   }
 
+  void _toggleUser(){
+    setState(() {
+      _currentUser = _currentUser.id == _user1.id ? _user2 : _user1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -218,6 +233,12 @@ class _ChatPageState extends State<ChatPage> {
             },
           ),
           title: const Text('Chat'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.switch_account),
+              onPressed: _toggleUser,
+              )
+            ],
           ),
         body: Chat(
           messages: _messages,
@@ -227,7 +248,7 @@ class _ChatPageState extends State<ChatPage> {
           onSendPressed: _handleSendPressed,
           showUserAvatars: true,
           showUserNames: true,
-          user: _user,
+          user: _currentUser,
         ),
       );
 }

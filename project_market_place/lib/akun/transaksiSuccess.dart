@@ -78,12 +78,6 @@ class TransactionSuccessPage extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 12),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => BotNavBar()),
-                          MaterialPageRoute(
-                              builder: (context) => NotifikasiPage(notifications: [],)),
-                        );
                       },
                     ),
                   ),

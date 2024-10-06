@@ -194,18 +194,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => TransactionSuccessPage(
-                        totalAmount: widget.totalAmount,
-                        cartItems: widget.cartItems,
-                    )
-                ),
-              );
-            },
             ElevatedButton(
               onPressed: () {
                 _incrementCount();
