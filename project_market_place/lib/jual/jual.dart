@@ -35,7 +35,6 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
         return AlertDialog(
           title: Text('Konfirmasi Upload', style: TextStyle(color: Colors.white)),
           content: Text('Apakah Anda yakin ingin mengupload produk ini?', style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.teal[900],
           actions: <Widget>[
             TextButton(
               child: Text('Tidak', style: TextStyle(color: Colors.white)),
@@ -75,7 +74,6 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[100], 
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
@@ -99,11 +97,10 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
             key: _formKey,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.teal[50],
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.teal.withOpacity(0.3),
+                    color: const Color.fromARGB(255, 247, 249, 249).withOpacity(0.3),
                     spreadRadius: 2,
                     blurRadius: 5,
                     offset: Offset(0, 3),
@@ -185,7 +182,7 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                               decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(12),
-                                color: Colors.teal[100],
+                                color: const Color.fromARGB(255, 85, 83, 83),
                               ),
                               child: Icon(
                                 Icons.image,
@@ -207,8 +204,8 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                         child: Row(
                           children: [
                             Icon(Icons.image, color: Colors.white),
-                            SizedBox(width: 5),
-                            Text('Pilih Gambar', style: TextStyle(color: Colors.white)),
+                            SizedBox(width: 10),
+                            Text('Pilih Gambarr', style: TextStyle(color: Colors.white)),
                           ],
                         ),
                       ),
