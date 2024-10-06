@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import '/akun/transaksiSuccess.dart';
+import 'package:in_app_notification/in_app_notification.dart';
+import 'package:project_market_place/notifikasi/page.dart';
+
+import '../notifikasi/inapp.dart';
+import '../notifikasi/notifikasi_success.dart';
 
 class CheckoutPage extends StatefulWidget {
   @override
@@ -7,6 +11,14 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
+  int _count = 0;
+  int _duration = 3000;
+  List<String> _notifications = [];
+
+  void _incrementCount() => setState(() {
+        _count++;
+        _notifications.add('Pesanan $_count Berhasil');
+      });
   String _messageToSeller = '';
 
   @override
@@ -166,13 +178,35 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TransactionSuccessPage()),
-              );
-            },
+            ElevatedButton(
+              onPressed: () {
+                _incrementCount();
+                InAppNotification.show(
+                  child: NotificationBody(
+                    count: _count,
+                  ),
+                  context: context,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotifikasiSuccess(
+                          pesanan: 'Klik disini',
+                          onShowNotification: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NotifikasiPage(notifications: _notifications),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                  duration: Duration(milliseconds: _duration),
+                );
+              },
             child: Text(
               'Buat Pesanan',
               style: TextStyle(

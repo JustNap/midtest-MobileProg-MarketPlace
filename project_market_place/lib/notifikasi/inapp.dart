@@ -56,7 +56,7 @@ class NotifikasiState extends State<Notifikasi> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Current count: $_count'),
+            Text('Pesanan dipesan: $_count'),
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
@@ -71,7 +71,7 @@ class NotifikasiState extends State<Notifikasi> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => NotifikasiSuccess(
-                          pesanan: 'Pesanan $_count Berhasil',
+                          pesanan: 'Klik disini',
                           onShowNotification: () {
                             Navigator.push(
                               context,

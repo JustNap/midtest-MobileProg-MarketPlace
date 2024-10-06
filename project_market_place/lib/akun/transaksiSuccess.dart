@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_market_place/bottom_nav.dart';
+
+import '../notifikasi/page.dart';
 
 class TransactionSuccessPage extends StatelessWidget {
   @override
@@ -64,7 +65,7 @@ class TransactionSuccessPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => BotNavBar()),
+                              builder: (context) => NotifikasiPage(notifications: [],)),
                         );
                       },
                     ),
