@@ -107,6 +107,62 @@ flutter:
     - family: poppins_semibold
       fonts:
         - asset: assets/fonts/Poppins-SemiBold.ttf
+    
+    - family: poppins_black
+      fonts:
+        - asset: assets/fonts/Poppins-Black.ttf
+
+    - family: poppins_blackitalic
+      fonts:
+        - asset: assets/fonts/Poppins-BlackItalic.ttf
+
+    - family: poppins_bi
+      fonts:
+        - asset: assets/fonts/Poppins-BoldItalic.ttf
+
+    - family: poppins_extrab
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
+
+    - family: poppins_extrabi
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraBoldItalic.ttf
+
+    - family: poppins_extralight
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraLight.ttf
+
+    - family: poppins_extralighti
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraLightItalic.ttf
+
+    - family: poppins_light
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+
+    - family: poppins_lighti
+      fonts:
+        - asset: assets/fonts/Poppins-LightItalic.ttf
+
+    - family: poppins_medium
+      fonts:
+        - asset: assets/fonts/Poppins-Medium.ttf
+
+    - family: poppins_mediumi
+      fonts:
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+
+    - family: poppins_semibi
+      fonts:
+        - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
+
+    - family: poppins_thin
+      fonts:
+        - asset: assets/fonts/Poppins-Thin.ttf
+
+    - family: poppins_thini
+      fonts:
+        - asset: assets/fonts/Poppins-ThinItalic.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

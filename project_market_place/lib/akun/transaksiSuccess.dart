@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:project_market_place/bottom_nav.dart';
 import 'package:project_market_place/models/product.dart';
 import 'package:project_market_place/notifikasi/page.dart';
+import '../notifikasi/page.dart';
 
 class TransactionSuccessPage extends StatelessWidget {
   final double totalAmount;
@@ -80,6 +81,8 @@ class TransactionSuccessPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => BotNavBar()),
+                          MaterialPageRoute(
+                              builder: (context) => NotifikasiPage(notifications: [],)),
                         );
                       },
                     ),

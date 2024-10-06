@@ -7,8 +7,8 @@ import 'package:project_market_place/providers/cart_provider.dart';
 import 'package:project_market_place/screens/cart_screen.dart';
 import 'package:project_market_place/theme.dart';
 import 'package:provider/provider.dart';
+
 import './tema/theme.dart';
-import 'bottom_nav.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
