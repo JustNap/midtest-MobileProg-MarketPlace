@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
+import 'package:project_market_place/bottom_nav.dart';
+import 'package:project_market_place/models/product.dart';
+import 'package:project_market_place/notifikasi/page.dart';
 import '../notifikasi/page.dart';
 
 class TransactionSuccessPage extends StatelessWidget {
+  final double totalAmount;
+  final List<Product> cartItems;
+
+  TransactionSuccessPage({required this.totalAmount, required this.cartItems});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +37,22 @@ class TransactionSuccessPage extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'IDR 00,000.00',
+                      'Rp${NumberFormat.currency(locale: 'id_ID', symbol: '').format(totalAmount)}',
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NotifikasiPage(notifications: [],
+                            ),
+                          )
+                        );
+                      },
                       child: Text(
                         'Lihat Detail',
                         style: TextStyle(color: Colors.blue),
@@ -64,6 +80,7 @@ class TransactionSuccessPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
+                          MaterialPageRoute(builder: (context) => BotNavBar()),
                           MaterialPageRoute(
                               builder: (context) => NotifikasiPage(notifications: [],)),
                         );
