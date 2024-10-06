@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/products/sorting_phones.dart';
 import '../products/product.dart';
 import '../products/see_all_phones.dart';
 import 'dart:io';
@@ -80,12 +81,11 @@ class _HomePageState extends State<HomePage> {
                   contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                 ),
                 onSubmitted: (query) {
-                  // Trigger navigation on search submit
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => AllPhonesPage(
-                        jsonFile: 'phones.json', // Assuming 'phones.json' holds all the phone data
+                        jsonFile: 'phones.json',
                         title: 'Search Results',
                         searchQuery: query,
                       ),
@@ -98,13 +98,13 @@ class _HomePageState extends State<HomePage> {
             // Carousel
             Container(
               height: 70,
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  _buildCarouselItem(Icons.category, "Sort by category"),
-                  _buildCarouselItem(Icons.request_quote, "Request for quotation"),
-                  _buildCarouselItem(Icons.request_quote, "Logistic Services"),
+                  _buildCarouselItem(Icons.category, "Sort by Name"),
+                  _buildCarouselItem(Icons.request_quote, "Sort by Price"),
+                  _buildCarouselItem(Icons.request_quote, "Sort by Brand"),
                 ],
               ),
             ),
@@ -121,40 +121,85 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildCarouselItem(IconData icon, String text) {
-    return Container(
-      width: 130,
-      height: 70,
-      margin: EdgeInsets.symmetric(horizontal: 3.0),
-      child: Card(
-        elevation: 4,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                size: 30.0,
-                color: Colors.teal,
+    return GestureDetector(
+      onTap: () {
+        if (text == "Sort by Name") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SortingPhonesPage(
+                title: 'Sorting by Name',
+                sortType: 'name',
+                defaultSelection: 'A to Z',
+                jsonFile: 'assets/phones.json',
+                sortOptions: ['A to Z', 'Z to A'],
               ),
-              SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  text,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.black,
+            ),
+          );
+        } else if (text == "Sort by Price") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SortingPhonesPage(
+                title: 'Sort by Price',
+                sortType: 'price',
+                defaultSelection: 'Low to High',
+                jsonFile: 'assets/phones.json',
+                sortOptions: ['Low to High', 'High to Low'],
+              ),
+            ),
+          );
+        } else if (text == "Sort by Brand") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SortingPhonesPage(
+                title: 'Sorting by Brand',
+                sortType: 'brand',
+                defaultSelection: 'Apple',
+                jsonFile: 'assets/phones.json',
+                sortOptions: ['Apple', 'Android'],
+              ),
+            ),
+          );
+        }
+      },
+      child: Container(
+        width: 110,
+        height: 70,
+        margin: EdgeInsets.symmetric(horizontal: 8.0),
+        child: Card(
+          elevation: 4,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  size: 30.0,
+                  color: Colors.teal,
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    text,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
 
   Widget _buildDealsSection(List<Product> productList, String title, String subtitle, double heightSubtitle) {
     return Padding(
