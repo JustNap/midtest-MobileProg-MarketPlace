@@ -69,6 +69,7 @@ class NotifikasiPage extends StatelessWidget {
           'Pesan terbaru',
           style: TextStyle(
             fontSize: 14,
+            fontWeight: FontWeight.bold,
             color: Colors.black54,
           ),
         ),
@@ -86,12 +87,13 @@ class NotifikasiPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Notifikasi',
+          'Riwayat Notifikasi',
           style: Theme.of(context).textTheme.displaySmall!.copyWith(
+            fontFamily: 'poppins_bold',
             fontSize: 24,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          )
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
         ),
         backgroundColor: Colors.teal,
         elevation: 2,
