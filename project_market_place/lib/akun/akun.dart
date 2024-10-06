@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
+import '/home/home.dart';
+import '/jual/jual.dart';
 import 'profil.dart';
 import 'setting.dart';
+import 'about.dart';
+import '../pembelian/checkout.dart';
 import '../bottom_nav.dart';
+import 'privasi.dart';
 
 class AkunPage extends StatefulWidget {
   @override
@@ -11,12 +18,14 @@ class AkunPage extends StatefulWidget {
 class _AkunPageState extends State<AkunPage> {
   String greeting = 'Hello';
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('akun'),
+        title: Text(
+          'akun',
+          style: TextStyle(fontFamily: 'poppins_semibold'),
+        ),
         backgroundColor: Colors.teal,
         elevation: 0,
         leading: Builder(
@@ -49,7 +58,7 @@ class _AkunPageState extends State<AkunPage> {
             ListTile(
               leading: Icon(Icons.settings, color: Colors.teal),
               title: Text('Pengaturan',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontFamily: 'poppins_semibold')),
               subtitle: Text('Notifikasi & Kata Sandi'),
               onTap: () {
                 Navigator.push(
@@ -60,18 +69,28 @@ class _AkunPageState extends State<AkunPage> {
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.smartphone, color: Colors.teal),
-              title: Text('Alasan pilih kami',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text('kenali kami'),
-            ),
+                leading: Icon(Icons.smartphone, color: Colors.teal),
+                title: Text('Alasan pilih kami',
+                    style: TextStyle(fontFamily: 'poppins_semibold')),
+                subtitle: Text('kenali kami'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutPage()),
+                  );
+                }),
             Divider(),
             ListTile(
-              leading: Icon(Icons.policy, color: Colors.teal),
-              title: Text('Kebijakan privasi',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text('Pelajari selengkapnya'),
-            ),
+                leading: Icon(Icons.policy, color: Colors.teal),
+                title: Text('Kebijakan privasi',
+                    style: TextStyle(fontFamily: 'poppins_semibold')),
+                subtitle: Text('Pelajari selengkapnya'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrivacyPage()),
+                  );
+                }),
             Divider(),
             Spacer(),
             Padding(
@@ -108,8 +127,7 @@ class _AkunPageState extends State<AkunPage> {
                     Text(
                       greeting,
                       style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
+                        fontFamily: 'poppins_semibold',
                       ),
                     ),
                     TextButton(
@@ -135,7 +153,8 @@ class _AkunPageState extends State<AkunPage> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Status',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style:
+                      TextStyle(fontFamily: 'poppins_semibold', fontSize: 18),
                 ),
               ),
             ),
@@ -144,13 +163,31 @@ class _AkunPageState extends State<AkunPage> {
               title: Text('Lanjut jual'),
               subtitle: Text('Dapatkan estimasi harga Handphone'),
               trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => UploadProductScreen()),
+                );
+              },
             ),
             ListTile(
-              leading: Icon(Icons.shopping_cart, color: Colors.teal),
-              title: Text('Status Pembelian'),
-              subtitle: Text('LIhat sudah sampai mana Barang mu'),
-              trailing: Icon(Icons.chevron_right),
-            ),
+                leading: Icon(Icons.shopping_cart, color: Colors.teal),
+                title: Text('Status Pembelian'),
+                subtitle: Text('LIhat sudah sampai mana Barang mu'),
+                trailing: Icon(Icons.chevron_right),
+                onTap: () {
+                  final cart = Provider.of<CartProvider>(context, listen: false);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CheckoutPage(
+                        totalAmount: cart.totalAmount,
+                        cartItems: cart.items.values.toList(),
+                      ),
+                    ),
+                  );
+                }),
             Divider(),
             Padding(
               padding:
@@ -165,14 +202,24 @@ class _AkunPageState extends State<AkunPage> {
                       Text(
                         'Start buying now!',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                            fontFamily: 'poppins_semibold', fontSize: 16),
                       ),
                       SizedBox(height: 8),
                       Text('Seems like you haven\'t explored much yet!'),
                       SizedBox(height: 16),
                       ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Explore Phone'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        },
+                        child: Text(
+                          'Explore Phone',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal,
                         ),

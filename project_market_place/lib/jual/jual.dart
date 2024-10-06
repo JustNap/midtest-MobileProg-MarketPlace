@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:project_market_place/bottom_nav.dart';
 import 'dart:io';
 import 'product_riview.dart';
 
@@ -45,7 +46,7 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
               child: Text('Ya'),
               onPressed: () {
                 Navigator.of(context).pop();
-                _navigateToReview(); 
+                _navigateToReview();
               },
             ),
           ],
@@ -72,9 +73,18 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold ( 
+    return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BotNavBar()),
+            );
+          },
+        ),
         title: Text('Upload Produk'),
       ),
       body: Padding(
