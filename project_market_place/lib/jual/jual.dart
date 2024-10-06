@@ -33,17 +33,17 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Konfirmasi Upload', style: TextStyle(color: Colors.white)),
-          content: Text('Apakah Anda yakin ingin mengupload produk ini?', style: TextStyle(color: Colors.white)),
+          title: Text('Konfirmasi Upload', style: TextStyle(color: Colors.grey)),
+          content: Text('Apakah Anda yakin ingin mengupload produk ini?', style: TextStyle(color: Colors.grey)),
           actions: <Widget>[
             TextButton(
-              child: Text('Tidak', style: TextStyle(color: Colors.white)),
+              child: Text('Tidak', style: TextStyle(color: Colors.grey)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Ya', style: TextStyle(color: Colors.white)),
+              child: Text('Ya', style: TextStyle(color: Colors.grey)),
               onPressed: () {
                 Navigator.of(context).pop();
                 _navigateToReview();
