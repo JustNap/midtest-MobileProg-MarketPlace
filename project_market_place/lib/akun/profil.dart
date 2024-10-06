@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
 class ProfilPage extends StatefulWidget {
   @override
@@ -51,7 +52,7 @@ class _ProfilPageState extends State<ProfilPage> {
                     TextButton(
                       onPressed: () {
                         setState(() {
-                          profileImage = 'assets/Gambar/putih.jpg'; 
+                          profileImage = 'assets/Gambar/untar.png'; 
                         });
                       },
                       child: Text('Edit Foto', style: TextStyle(color: Colors.teal)),
@@ -123,8 +124,11 @@ class _ProfilPageState extends State<ProfilPage> {
                       birthDate = birthDateController.text;
                       gender = selectedGender;
                     });
+                    _simpanpopup(context);
                   },
-                  child: Text('Simpan Perubahan'),
+                  child: Text('Simpan Perubahan',
+                  style: TextStyle(color: Colors.white),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal,
                   ),
@@ -134,6 +138,26 @@ class _ProfilPageState extends State<ProfilPage> {
           ),
         ),
       ),
+    );
+  }
+
+  void _simpanpopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Berhasil'),
+          content: Text('Data berhasil disimpan.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

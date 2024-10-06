@@ -6,6 +6,9 @@ class LoginPage extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final email = TextEditingController();
   final password = TextEditingController();
+  final newPassword = TextEditingController();
+  final confirmPassword = TextEditingController();
+  final forgotPassFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +85,12 @@ class LoginPage extends StatelessWidget {
                 SizedBox(height: 16),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot Password',
-                    style: TextStyle(color: Colors.white),
+                  child: GestureDetector(
+                    onTap: () => _showForgotPasswordDialog(context),
+                    child: Text(
+                      'Forgot Password',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
                 SizedBox(height: 24),
@@ -152,6 +158,87 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+
+  void _showForgotPasswordDialog(BuildContext context) {
+
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Forgot Password'),
+          content: Form(
+            key: forgotPassFormKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  controller: email,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Masukkan email!';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 10),
+                TextFormField(
+                  controller: newPassword,
+                  decoration: InputDecoration(
+                    labelText: 'Password Baru',
+                  ),
+                  obscureText: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Masukkan password baru!';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 10),
+                TextFormField(
+                  controller: confirmPassword,
+                  decoration: InputDecoration(
+                    labelText: 'Konfirmasi Password',
+                  ),
+                  obscureText: true,
+                  validator: (value) {
+                    if (value != newPassword.text) {
+                      return 'Password tidak cocok!';
+                    }
+                    return null;
+                  },
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                if (forgotPassFormKey.currentState!.validate()) {
+                  Navigator.of(context).pop(); 
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Password berhasil direset')),
+                  );
+                }
+              },
+              child: Text('Reset'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); 
+              },
+              child: Text('Batal'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

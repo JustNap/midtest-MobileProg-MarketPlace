@@ -11,7 +11,7 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
-  bool _isNotificationsEnabled = true;
+  bool _isNotificationsEnabled = false;
   String _selectedLanguage = 'English';
 
   @override
@@ -28,7 +28,7 @@ class _SettingPageState extends State<SettingPage> {
         children: [
           ListTile(
             leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/Gambar/putih.jpg'),
+              backgroundImage: AssetImage('assets/Gambar/untar.png'),
               radius: 24,
             ),
             title: Text('Kelompok 1'),
