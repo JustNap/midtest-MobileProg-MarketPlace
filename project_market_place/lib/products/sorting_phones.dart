@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../products/product.dart';
-import 'package:flutter/services.dart' show rootBundle; // Import untuk memuat file JSON
+import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
 class SortingPhonesPage extends StatefulWidget {
   final String title;
-  final String sortType; // "name", "price", "brand"
+  final String sortType;
   final String defaultSelection;
   final String jsonFile;
   final List<String> sortOptions;
@@ -102,20 +102,20 @@ class _SortingPhonesPageState extends State<SortingPhonesPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Sort by', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                SizedBox(height: 8), // Jarak antara label dan dropdown
+                SizedBox(height: 8),
                 Container(
-                  width: double.infinity, // Mengatur lebar penuh
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0), // Padding kiri dan kanan
-                  height: 60, // Tinggi dropdown
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  height: 60,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey), // Border untuk dropdown
-                    borderRadius: BorderRadius.circular(4.0), // Radius untuk sudut
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(4.0),
                   ),
                   child: Row(
                     children: [
                       Expanded(
                         child: DropdownButton<String>(
-                          isExpanded: true, // Memastikan dropdown mengisi ruang yang ada
+                          isExpanded: true,
                           value: dropdownValue,
                           onChanged: (String? newValue) {
                             setState(() {
@@ -157,7 +157,7 @@ class _SortingPhonesPageState extends State<SortingPhonesPage> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 20.0), // Add top padding here
+                            padding: const EdgeInsets.only(top: 20.0),
                             child: Image.asset(sortedProducts[index].imagePath, height: 80, fit: BoxFit.cover),
                           ),
                           Padding(
