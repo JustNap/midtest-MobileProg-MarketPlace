@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
+
 import '../models/product.dart';
 
 class CartProvider with ChangeNotifier {
@@ -60,7 +62,11 @@ class CartProvider with ChangeNotifier {
 
   void removeSingleItem(String productId) {
     if (_items.containsKey(productId)) {
-      _items.remove(productId);
+      if (_items[productId]!.quantity > 1) {
+        _items[productId]!.quantity--;
+      }else {
+        _items.remove(productId);
+      }
       notifyListeners();
       saveCart();
     }

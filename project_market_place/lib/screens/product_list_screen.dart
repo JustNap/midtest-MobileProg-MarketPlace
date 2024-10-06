@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:project_market_place/bottom_nav.dart';
 import 'package:provider/provider.dart';
-import '../providers/cart_provider.dart';
+
 import '../models/product.dart';
-import 'cart_screen.dart';
+import '../providers/cart_provider.dart';
 import '../widgets/cart_icon.dart';
-import 'package:intl/intl.dart';
 
 class ProductListScreen extends StatelessWidget {
   final List<Product> products = [
     Product(
       id: '1',
       name: 'Samsung',
-      price: 10000.0, 
+      price: 14999900.0,
       imageUrl: 'assets/Gambar/samsung.jpg',
       description: 'Deskripsi :Kapan lagi ada HP Samsung murah dengan performa juara, HP yang dimaksud yaitu Galaxy M15 5G dengan chipset Dimensity 6100+ 5G. Chipset tersebut sudah bisa diandalkan untuk bermain game masa kekinian.',
     ),
     Product(
       id: '2',
       name: 'Iphone',
-      price: 20000.0,
+      price: 19999900.0,
       imageUrl: 'assets/Gambar/iphone1.jpg',
       description: 'Deskripsi :Desain menawan dengan sertifikasi IP68 Layar tajam Liquid Retina IPS SoC premium Apple A13 Bionic Konfigurasi dua kamera belakang 12 MP berkualitas Baterai 3110 mAh.',
     ),

@@ -5,7 +5,6 @@ class NotifikasiPage extends StatelessWidget {
 
   NotifikasiPage({Key? key, required this.notifications}) : super(key: key);
 
-  @override
   Widget _buildEmptyState(BuildContext context) {
     return Center(
         child: Column(
@@ -29,7 +28,6 @@ class NotifikasiPage extends StatelessWidget {
     );
   }
 
-  @override
   Widget _buildNotificationList(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
