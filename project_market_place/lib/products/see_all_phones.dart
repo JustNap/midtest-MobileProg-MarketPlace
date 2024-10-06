@@ -6,8 +6,9 @@ import 'package:flutter/services.dart' show rootBundle;
 class AllPhonesPage extends StatelessWidget {
   final String jsonFile;
   final String title;
+  final String searchQuery;
 
-  AllPhonesPage({required this.jsonFile, required this.title});
+  AllPhonesPage({required this.jsonFile, required this.title, this.searchQuery = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +29,36 @@ class AllPhonesPage extends StatelessWidget {
             return Center(child: Text('No products found.'));
           }
 
-          final products = snapshot.data!;
+          // Dapatkan data produk
+          var products = snapshot.data!;
 
-          return Padding(padding: const EdgeInsets.only(top: 10.0),
+          // Filter produk berdasarkan searchQuery
+          if (searchQuery.isNotEmpty) {
+            products = products.where((product) {
+              return product.name.toLowerCase().contains(searchQuery.toLowerCase());
+            }).toList();
+          }
+
+          // Jika tidak ada produk yang cocok dengan pencarian
+          if (products.isEmpty) {
+            return Center(child: Text('No products found.'));
+          }
+
+          return Padding(
+            padding: const EdgeInsets.only(top: 10.0),
             child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1,
-              crossAxisSpacing: 1.0,
-              mainAxisSpacing: 10.0,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1,
+                crossAxisSpacing: 1.0,
+                mainAxisSpacing: 10.0,
+              ),
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return _buildProductCard(product.name, product.imagePath, product.price);
+              },
             ),
-            itemCount: products.length,
-            itemBuilder: (context, index) {
-              final product = products[index];
-              return _buildProductCard(product.name, product.imagePath, product.price);
-            },
-          ),
           );
         },
       ),
@@ -100,5 +115,4 @@ class AllPhonesPage extends StatelessWidget {
       ),
     );
   }
-
 }

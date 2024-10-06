@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   List<Product> topDeals = [];
   List<Product> newArrivals = [];
+  TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                controller: _searchController,
                 decoration: InputDecoration(
                   hintText: 'Search for phones..',
                   border: OutlineInputBorder(
@@ -77,6 +79,19 @@ class _HomePageState extends State<HomePage> {
                   // ),
                   contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                 ),
+                onSubmitted: (query) {
+                  // Trigger navigation on search submit
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AllPhonesPage(
+                        jsonFile: 'phones.json', // Assuming 'phones.json' holds all the phone data
+                        title: 'Search Results',
+                        searchQuery: query,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
 
