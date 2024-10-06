@@ -58,23 +58,23 @@ class _HomePageState extends State<HomePage> {
                     Icons.search,
                     color: Colors.teal,
                   ),
-                  suffixIcon: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.teal,
-                          shape: BoxShape.circle,
-                        ),
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.camera_alt,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(width: 8.0),
-                    ],
-                  ),
+                  // suffixIcon: Row(
+                  //   mainAxisSize: MainAxisSize.min,
+                  //   children: [
+                  //     Container(
+                  //       decoration: BoxDecoration(
+                  //         color: Colors.teal,
+                  //         shape: BoxShape.circle,
+                  //       ),
+                  //       padding: EdgeInsets.all(8.0),
+                  //       child: Icon(
+                  //         Icons.camera_alt,
+                  //         color: Colors.white,
+                  //       ),
+                  //     ),
+                  //     SizedBox(width: 8.0),
+                  //   ],
+                  // ),
                   contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                 ),
               ),
