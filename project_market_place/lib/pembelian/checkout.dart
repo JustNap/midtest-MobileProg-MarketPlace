@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_notification/in_app_notification.dart';
 import 'package:intl/intl.dart';
 import 'package:project_market_place/models/product.dart';
-import 'package:in_app_notification/in_app_notification.dart';
-import '../notifikasi/page.dart';
+
 import '../notifikasi/inapp.dart';
 import '../notifikasi/notifikasi_success.dart';
-import '/akun/transaksiSuccess.dart';
+import '../notifikasi/page.dart';
 
 class CheckoutPage extends StatefulWidget {
   final double totalAmount;
