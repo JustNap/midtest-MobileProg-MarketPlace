@@ -96,18 +96,18 @@ class PrivacyInfoCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.black87, 
+              color: Colors.grey, 
             ),
           ),
           SizedBox(height: 10),
           Text(
             'Lorem ipsum dolor sit amet. Aut quisquam neque a molestiae iure et dolores galisum. Qui asperiores rerum id asperiores odio qui omnis neque. Vel eius nesciunt et distinctio quisquam non quis dolor aut quas alias a rerum consequatur. Qui voluptatem labore rem eius natus eos odit aspernatur est mollitia nesciunt. Ab obcaecati consequatur et commodi inventore aut possimus molestiae ut saepe adipisci qui voluptatem excepturi sit rerum architecto qui quis nemo! Aut expedita eligendi eum commodi possimus ut praesentium aperiam quo dolorem deleniti. Et distinctio dignissimos qui nisi quia in blanditiis nihil et neque dolor ut neque quisquam et exercitationem rerum. Qui minus ducimus et internos fugiat hic ullam molestiae hic eveniet tempora eos illo doloribus eum reiciendis galisum. Qui natus ullam et voluptatem amet est beatae consequatur non commodi quia et quaerat culpa. Qui reiciendis velit qui corporis numquam sed omnis delectus.',
-            style: TextStyle(fontSize: 16, color: Colors.black54),
+            style: TextStyle(fontSize: 16, color: Colors.grey),
           ),
           SizedBox(height: 10),
           Text(
             'Lorem ipsum dolor sit amet. Sed minima molestias aut ipsam aliquid ex omnis unde a obcaecati repudiandae. Ut rerum mollitia cum iure distinctio et iusto libero ut quasi commodi ut excepturi dolores. Ut accusamus enim aut rerum similique qui labore commodi non dolor debitis. Ex dicta rerum est sunt quia et rerum neque qui consectetur quidem et repudiandae maxime. Vel eaque doloremque qui totam eius ad maxime veritatis. Et iste praesentium ut dicta ratione aut necessitatibus fugiat id dolorem molestiae? Cum soluta doloremque ut maxime explicabo ut perspiciatis voluptatum eum quos voluptates. Et quos tempora et temporibus ipsum et voluptas recusandae ut nostrum voluptas in blanditiis eveniet id voluptas dolores. Ex perspiciatis nostrum qui odio dolorum est alias voluptatibus et similique nihil et cumque corporis sed velit similique.',
-            style: TextStyle(fontSize: 16, color: Colors.black54),
+            style: TextStyle(fontSize: 16, color: Colors.grey),
           ),
         ],
       ),
