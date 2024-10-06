@@ -30,17 +30,14 @@ class AllPhonesPage extends StatelessWidget {
             return Center(child: Text('No products found.'));
           }
 
-          // Dapatkan data produk
           var products = snapshot.data!;
 
-          // Filter produk berdasarkan searchQuery
           if (searchQuery.isNotEmpty) {
             products = products.where((product) {
               return product.name.toLowerCase().contains(searchQuery.toLowerCase());
             }).toList();
           }
 
-          // Jika tidak ada produk yang cocok dengan pencarian
           if (products.isEmpty) {
             return Center(child: Text('No products found.'));
           }
@@ -91,7 +88,7 @@ class AllPhonesPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 20.0), // Add top padding here
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Image.asset(imageUrl, height: 80, fit: BoxFit.cover),
               ),
               Padding(
