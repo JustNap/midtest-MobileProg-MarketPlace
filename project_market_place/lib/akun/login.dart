@@ -135,24 +135,6 @@ class LoginPage extends StatelessWidget {
                   'Log in with',
                   style: TextStyle(color: Colors.white),
                 ),
-                SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.facebook, color: Colors.white),
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.g_mobiledata, color: Colors.white),
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.catching_pokemon, color: Colors.white),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
