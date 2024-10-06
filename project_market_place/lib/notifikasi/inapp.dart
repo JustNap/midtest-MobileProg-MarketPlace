@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:in_app_notification/in_app_notification.dart';
+import 'package:project_market_place/bottom_nav.dart';
 
 import '../chat.dart';
 import 'notifikasi_success.dart';
@@ -26,7 +27,23 @@ class NotifikasiState extends State<Notifikasi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifikasi Lokal'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BotNavBar()),
+            );
+          },
+        ),
+        title: Text('Notifikasi Lokal',
+        style: Theme.of(context).textTheme.displayMedium!.copyWith(
+          fontFamily: 'poppins_bold',
+          fontSize: 24,
+          fontWeight: FontWeight.w700,
+          color: Colors.black87,
+            ),
+          ),
         actions: [
           IconButton(
             icon: Icon(Icons.chat),
@@ -40,15 +57,31 @@ class NotifikasiState extends State<Notifikasi> {
             },
           )
         ],
+        backgroundColor: Colors.teal,
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Current count: $_count'),
+            Text('Pesanan dipesan: $_count',
+            style: TextStyle(
+              fontFamily: 'poppins_regular',
+              fontSize: 20,
+              fontWeight: FontWeight.w600
+              ),
+            ),
             const SizedBox(height: 32),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 10,
+                )
+              ),
               onPressed: () {
                 _incrementCount();
                 InAppNotification.show(
@@ -61,7 +94,7 @@ class NotifikasiState extends State<Notifikasi> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => NotifikasiSuccess(
-                          pesanan: 'Pesanan $_count Berhasil',
+                          pesanan: 'Klik disini',
                           onShowNotification: () {
                             Navigator.push(
                               context,
@@ -77,7 +110,13 @@ class NotifikasiState extends State<Notifikasi> {
                   duration: Duration(milliseconds: _duration),
                 );
               },
-              child: Text('Lihatkan Notifikasi'),
+              child: Text('Lihatkan Notifikasi',
+              style: TextStyle(
+                fontFamily: 'poppins_mediumi',
+                fontSize: 16,
+                fontWeight: FontWeight.bold
+                ),
+              ),
             ),
             const SizedBox(height: 32),
           ],
@@ -123,8 +162,11 @@ class NotificationBody extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Center(
                   child: Text(
-                    'Pesanan: $count Berhasil',
-                    style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                    'Pesanan: $count Berhasil! \n' 'Klik Disini',
+                    style: TextStyle(
+                      fontFamily: 'poppins_extrabi',
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

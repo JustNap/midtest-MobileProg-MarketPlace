@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Apple iPhone 16 Plus",
+    "imagePath": "assets/Phones/apple-iphone-16-plus.jpg",
+    "price": 15000000
+  },
+  {
+    "name": "Apple iPhone 16 Pro Max",
+    "imagePath": "assets/Phones/apple-iphone-16-pro-max.jpg",
+    "price": 22000000
+  },
+  {
+    "name": "Apple iPhone 16 Pro",
+    "imagePath": "assets/Phones/apple-iphone-16-pro.jpg",
+    "price": 21000000
+  },
+  {
+    "name": "Apple iPhone 16",
+    "imagePath": "assets/Phones/apple-iphone-16.jpg",
+    "price": 19000000
+  },
+  {
+    "name": "Oppo A1 5G New",
+    "imagePath": "assets/Phones/oppo-a1-5g-new.jpg",
+    "price": 5000000
+  },
+  {
+    "name": "Oppo A3 International",
+    "imagePath": "assets/Phones/oppo-a3-int.jpg",
+    "price": 4000000
+  }
+]

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/pembelian/checkout.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../providers/cart_provider.dart';
@@ -92,6 +93,15 @@ class CartScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CheckoutPage(
+                          totalAmount: cart.totalAmount,
+                          cartItems: cart.items.values.toList(),
+                        )
+                      ),
+                    );
                   },
                   child: Text('Check Out'),
                 ),
