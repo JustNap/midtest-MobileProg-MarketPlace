@@ -211,7 +211,7 @@ class _AkunPageState extends State<AkunPage> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => BotNavBar()),
                           );
                         },
                         child: Text(
