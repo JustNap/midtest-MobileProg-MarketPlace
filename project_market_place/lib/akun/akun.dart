@@ -112,7 +112,7 @@ class _AkunPageState extends State<AkunPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset('assets/Gambar/putih.jpg',
+            Image.asset('assets/Gambar/banner.png',
                 fit: BoxFit.cover, width: double.infinity, height: 180),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -200,12 +200,12 @@ class _AkunPageState extends State<AkunPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Start buying now!',
+                        'Mulai Belanja Sekarang!',
                         style: TextStyle(
                             fontFamily: 'poppins_semibold', fontSize: 16),
                       ),
                       SizedBox(height: 8),
-                      Text('Seems like you haven\'t explored much yet!'),
+                      Text('Sepertinya anda belum banyak menjelajah'),
                       SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
@@ -215,7 +215,7 @@ class _AkunPageState extends State<AkunPage> {
                           );
                         },
                         child: Text(
-                          'Explore Phone',
+                          'Cari Handphone',
                           style: TextStyle(
                             color: Colors.white,
                           ),

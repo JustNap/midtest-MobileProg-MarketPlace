@@ -78,9 +78,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         Divider(height: 1),
                         _buildTextFormField(birthdate, 'Tanggal Lahir'),
                         Divider(height: 1),
-                        _buildTextFormField(password, 'Password', isPassword: true),
+                        _buildTextFormField(password, 'Password Baru', isPassword: true),
                         Divider(height: 1),
-                        _buildTextFormField(retypePassword, 'Retype Password', isPassword: true),
+                        _buildTextFormField(retypePassword, 'Konfirmasi Password', isPassword: true),
                         Divider(height: 1),
                         
                         Padding(
