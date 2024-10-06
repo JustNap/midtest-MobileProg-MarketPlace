@@ -6,7 +6,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -208,11 +208,11 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           title,
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Change text color to white for better contrast
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                         ),
                         Text(
                           subtitle,
-                          style: TextStyle(fontSize: 14, color: Colors.black), // Change text color to white for better contrast
+                          style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
                     ),
@@ -282,7 +282,7 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    'Rp.${price.toStringAsFixed(0)}',
+                    'Rp ${NumberFormat.currency(locale: 'id', symbol: '', decimalDigits: 0).format(price)}',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
