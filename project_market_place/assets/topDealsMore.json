@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Apple iPhone 14 Pro Max",
+    "imagePath": "assets/Phones/apple-iphone-14-pro-max-.jpg",
+    "price": 20000000
+  },
+  {
+    "name": "Apple iPhone 14 Pro",
+    "imagePath": "assets/Phones/apple-iphone-14-pro.jpg",
+    "price": 19000000
+  },
+  {
+    "name": "Apple iPhone 14",
+    "imagePath": "assets/Phones/apple-iphone-14.jpg",
+    "price": 17000000
+  },
+  {
+    "name": "Apple iPhone 15 Plus",
+    "imagePath": "assets/Phones/apple-iphone-15-plus-.jpg",
+    "price": 16000000
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "imagePath": "assets/Phones/apple-iphone-15-pro-max.jpg",
+    "price": 21000000
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "imagePath": "assets/Phones/apple-iphone-15-pro.jpg",
+    "price": 20000000
+  },
+  {
+    "name": "Vivo U38",
+    "imagePath": "assets/Phones/vivo-u38.jpg",
+    "price": 5000000
+  },
+  {
+    "name": "Vivo V40 SE",
+    "imagePath": "assets/Phones/vivo-v40-se.jpg",
+    "price": 7000000
+  },
+  {
+    "name": "Vivo V40E",
+    "imagePath": "assets/Phones/vivo-v40e.jpg",
+    "price": 6500000
+  },
+  {
+    "name": "Vivo X100S Pro",
+    "imagePath": "assets/Phones/vivo-x100s-pro.jpg",
+    "price": 15000000
+  },
+  {
+    "name": "Vivo Y03",
+    "imagePath": "assets/Phones/vivo-y03.jpg",
+    "price": 4000000
+  },
+  {
+    "name": "Vivo Y18E",
+    "imagePath": "assets/Phones/vivo-y18e.jpg",
+    "price": 4500000
+  },
+  {
+    "name": "Vivo Y28S",
+    "imagePath": "assets/Phones/vivo-y28s.jpg",
+    "price": 5000000
+  },
+  {
+    "name": "Vivo Y37 Pro",
+    "imagePath": "assets/Phones/vivo-y37-pro.jpg",
+    "price": 5500000
+  },
+  {
+    "name": "Vivo Y300 Pro",
+    "imagePath": "assets/Phones/vivo-y300-pro.jpg",
+    "price": 6000000
+  },
+  {
+    "name": "Xiaomi 14T Pro",
+    "imagePath": "assets/Phones/xiaomi-14t-pro.jpg",
+    "price": 12000000
+  },
+  {
+    "name": "Xiaomi 14T",
+    "imagePath": "assets/Phones/xiaomi-14t.jpg",
+    "price": 10000000
+  },
+  {
+    "name": "Xiaomi Mix Fold 4",
+    "imagePath": "assets/Phones/xiaomi-mix-fold4.jpg",
+    "price": 18000000
+  },
+  {
+    "name": "Xiaomi Poco F6 Pro",
+    "imagePath": "assets/Phones/xiaomi-poco-f6-pro.jpg",
+    "price": 7000000
+  },
+  {
+    "name": "Xiaomi Poco F6",
+    "imagePath": "assets/Phones/xiaomi-poco-f6.jpg",
+    "price": 6000000
+  },
+  {
+    "name": "Xiaomi Poco M6 Plus 5G",
+    "imagePath": "assets/Phones/xiaomi-poco-m6-plus-5g.jpg",
+    "price": 5000000
+  },
+  {
+    "name": "Xiaomi Redmi K70 Ultra",
+    "imagePath": "assets/Phones/xiaomi-redmi-k70-ultra-.jpg",
+    "price": 4999000
+  },
+  {
+    "name": "Xiaomi Redmi Note 14 5G",
+    "imagePath": "assets/Phones/xiaomi-redmi-note-14-5g.jpg",
+    "price": 3999000
+  },
+  {
+    "name": "Xiaomi Redmi Note 14 Pro 5G",
+    "imagePath": "assets/Phones/xiaomi-redmi-note-14-pro-5g.jpg",
+    "price": 5999000
+  },
+  {
+    "name": "Xiaomi Redmi Note 14 Plus 5G",
+    "imagePath": "assets/Phones/xiaomi-redmi-note-14-pro-plus-5g.jpg",
+    "price": 6999000
+  }
+]

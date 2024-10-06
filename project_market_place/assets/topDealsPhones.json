@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Apple iPhone 14 Pro Max",
+    "imagePath": "assets/Phones/apple-iphone-14-pro-max-.jpg",
+    "price": 20000000
+  },
+  {
+    "name": "Apple iPhone 14 Pro",
+    "imagePath": "assets/Phones/apple-iphone-14-pro.jpg",
+    "price": 19000000
+  },
+  {
+    "name": "Apple iPhone 14",
+    "imagePath": "assets/Phones/apple-iphone-14.jpg",
+    "price": 17000000
+  },
+  {
+    "name": "Apple iPhone 15 Plus",
+    "imagePath": "assets/Phones/apple-iphone-15-plus-.jpg",
+    "price": 16000000
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "imagePath": "assets/Phones/apple-iphone-15-pro-max.jpg",
+    "price": 21000000
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "imagePath": "assets/Phones/apple-iphone-15-pro.jpg",
+    "price": 20000000
+  }
+]
