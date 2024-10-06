@@ -28,6 +28,7 @@ class CartProvider with ChangeNotifier {
           name: existingProduct.name,
           price: existingProduct.price,
           imageUrl: existingProduct.imageUrl,
+          description: existingProduct.description,
           quantity: newQuantity,
           isSelected: existingProduct.isSelected,
         );
@@ -45,6 +46,7 @@ class CartProvider with ChangeNotifier {
           name: existingProduct.name,
           price: existingProduct.price,
           imageUrl: existingProduct.imageUrl,
+          description: existingProduct.description,
           quantity: existingProduct.quantity + 1,
           isSelected: existingProduct.isSelected,
         );
@@ -72,6 +74,7 @@ class CartProvider with ChangeNotifier {
           name: existingProduct.name,
           price: existingProduct.price,
           imageUrl: existingProduct.imageUrl,
+          description: existingProduct.description,
           quantity: existingProduct.quantity,
           isSelected: !existingProduct.isSelected,
         );
@@ -112,6 +115,7 @@ class CartProvider with ChangeNotifier {
             name: item['name'],
             price: item['price'],
             imageUrl: item['imageUrl'],
+            description: item['description'],
             quantity: item['quantity'],
             isSelected: item['isSelected'] ?? true,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_market_place/screens/product_list_screen.dart';
 
 import 'akun/akun.dart';
 import 'home/home.dart';
@@ -16,7 +17,7 @@ class _BotNavBarState extends State<BotNavBar> {
 
   final List<Widget> _pages = [
     HomePage(),
-    KeranjangPage(),
+    ProductListScreen(),
     UploadProductScreen(),
     Notifikasi(),
     AkunPage(),
