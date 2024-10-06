@@ -207,7 +207,7 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                         child: Row(
                           children: [
                             Icon(Icons.image, color: Colors.white),
-                            SizedBox(width: 10),
+                            SizedBox(width: 5),
                             Text('Pilih Gambar', style: TextStyle(color: Colors.white)),
                           ],
                         ),
